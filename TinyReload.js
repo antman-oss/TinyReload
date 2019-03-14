@@ -36,9 +36,13 @@ function ( qlik) {
 			var app = qlik.currApp(this);	
 			var height = $element.height(),
 				width = $element.width();
-				
+			
+			//Auto adjust images containers
+			var contain;
+			width < height ? contain = width + 'px' : contain = height + 'px'; 
+			
 			var $ctrl = $('<div style="height:' + height + '%;width:' + width + ';" id="reloadNow">');
-			var html = '<img id="bg" src="/extensions/TinyReload/A0.png" style="width:100%;height:' + width + 'px";>'
+			var html = '<img id="bg" src="/extensions/TinyReload/A0.png" style="width:' + contain + ';height:' + contain + '";>'
 			$ctrl.html(html);
 			$element.html( $ctrl );
 			
